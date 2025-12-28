@@ -2,6 +2,8 @@ import smtplib
 from email.mime.text import MIMEText
 from datetime import datetime
 
+import os
+
 EMAIL_FROM = os.getenv("EMAIL_FROM")
 EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
 EMAIL_TO = EMAIL_FROM
@@ -25,4 +27,5 @@ def send_email(jobs):
         server.starttls()
         server.login(EMAIL_FROM, EMAIL_PASSWORD)
         server.send_message(msg)
+
 

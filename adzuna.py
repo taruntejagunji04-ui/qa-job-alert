@@ -1,7 +1,9 @@
 import requests
 
-APP_ID = "47569c78"
-APP_KEY = "ce2b045355381614fca105fd13f3f5c0"
+import os
+
+APP_ID = os.getenv("ADZUNA_APP_ID")
+APP_KEY = os.getenv("ADZUNA_APP_KEY")
 
 URL = "https://api.adzuna.com/v1/api/jobs/us/search/1"
 
@@ -28,3 +30,4 @@ def get_adzuna_jobs():
         })
 
     return jobs
+

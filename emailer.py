@@ -2,9 +2,9 @@ import smtplib
 from email.mime.text import MIMEText
 from datetime import datetime
 
-EMAIL_FROM = "taruntejagunji04@gmail.com"
-EMAIL_TO = "taruntejagunji04@gmail.com"
-EMAIL_PASSWORD = "uemt ezis zbhe auzs"
+EMAIL_FROM = os.getenv("EMAIL_FROM")
+EMAIL_PASSWORD = os.getenv("EMAIL_PASSWORD")
+EMAIL_TO = EMAIL_FROM
 
 def send_email(jobs):
     body = ""
@@ -25,3 +25,4 @@ def send_email(jobs):
         server.starttls()
         server.login(EMAIL_FROM, EMAIL_PASSWORD)
         server.send_message(msg)
+
